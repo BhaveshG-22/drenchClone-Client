@@ -30,7 +30,7 @@ function RenderControls() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:4000/");
+        const response = await fetch("https://drench-clone-api.vercel.app/");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

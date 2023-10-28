@@ -6,7 +6,7 @@ function RenderGrid() {
 
   useEffect(() => {
     console.log("here");
-    fetch("http://localhost:4000/")
+    fetch("https://drench-clone-api.vercel.app/")
       .then((resp) => {
         if (!resp.ok) {
           throw new Error("Network response was not ok");
