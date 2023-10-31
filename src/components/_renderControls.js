@@ -80,18 +80,6 @@ function RenderControls() {
     // console.log(newGrid);
   }
 
-  // useEffect(() => {
-  //   if (moves === 0) {
-  //     setModalMSG("Moves Completed, Try Again! 🥺");
-  //     setIsModalVisible(true);
-  //     setGameOver(true);
-  //   } else if (gameOver) {
-  //     setModalMSG("Game Over, Start a 🆕 Game");
-  //     setIsModalVisible(true);
-  //     setNewGame(true);
-  //   }
-  // }, [moves, gameOver]);
-
   if (isLoading) {
     return <h1>Loading!!!</h1>;
   }
@@ -126,18 +114,18 @@ function RenderControls() {
   }
 
   return (
-    <div className="flex bg-gray-700 p-8 gap-4">
+    <div className="flex bg-gray-700 mt-0 lg:mt-14 p-8 gap-4 flex-col lg:flex-row justify-center items-center">
       <RenderGrid grid={grid} />
-      <div className="bg-slate-600 w-64 min-h-80 flex flex-col items-center  ">
+      <div className="bg-slate-600 min-w-64 lg:w-64 min-h-80 flex flex-col items-center  ">
         <div className="flex">
           <div className="font-mono font-bold text-8xl m-4 p-2 bg-gray-700 w-fit">
             {moves}
           </div>
-          <div className="mt-auto mb-auto text-xl">
+          <div className="mt-auto mb-auto text-xl p-2">
             Moves to drench the board!
           </div>
         </div>
-        <div className="mt-5 flex flex-col space-y-5">
+        <div className="mt-5 flex flex-col space-y-5 scale-125 lg:scale-100">
           <div className="flex space-x-5">
             <a
               role="button"
@@ -191,14 +179,14 @@ function RenderControls() {
 
             setReset(!isReset);
           }}
-          className="mx-auto p-2 font-mono my-auto mt-7  rounded-xl text-white bg-gray-400"
+          className="lg:mb-4 lg:mt-5  mt-8 mb-8 p-2 font-mono my-auto rounded-xl text-white bg-gray-400"
         >
           Reset
         </button>
       </div>
       {isModalVisible && (
-        <div className=" z-10 fixed inset-0  w-full h-full  bg-black bg-opacity-75  flex justify-center items-center">
-          <div className="bg-white select-none flex flex-col items-center  justify-center p-8 rounded-lg shadow-lg">
+        <div className=" z-10 fixed inset-0   w-full h-full  bg-black bg-opacity-75  flex justify-center items-center">
+          <div className="bg-white  scale-75 lg:scale-100 select-none flex flex-col items-center  justify-center p-8 rounded-lg shadow-lg">
             <div className="flex gap-4">
               <h1 className=" font-thin text-3xl">{modalMSG} </h1>
               <button
@@ -206,14 +194,13 @@ function RenderControls() {
                   setIsModalVisible(false);
                 }}
                 className="p-5 font-sans scale-125  font-bold   border-4 rounded-full text-white bg-gray-400 w-14 h-14  flex items-center justify-center"
-                // className="p-5 font-sans scale-125 font-bold capitalize border-4 rounded-full text-white bg-gray-400 w-16 h-16 flex items-center justify-center"
               >
                 X
               </button>
             </div>
             {gameOver && (
               <div
-                className="bg-gray-500 p-4 font-sans font-thin select-none flex items-center justify-center  rounded-lg shadow-lg"
+                className="bg-gray-400 p-2 mt-7 scale-150 font-sans font-thin select-none flex items-center justify-center  rounded-lg shadow-lg"
                 onClick={() => {
                   handelNewGame();
                 }}
